@@ -5,7 +5,14 @@ module.exports = {
         "./components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        fontFamily: {
+            'nerko-one': "'Nerko One', cursive"
+        },
+        extend: {
+            boxShadow: {
+                'top-only': '0px -25px 25px -25px rgba(77,77,77,0.5)'
+            }
+        },
     },
     plugins: [],
 }

@@ -1,6 +1,10 @@
 const Card = ({ className = '', children }) => {
 	return (
-		<div className={`bg-white shadow-md rounded-sm p-3 ${className}`}>
+		<div
+			className={`bg-white shadow-md ${
+				!className.includes('rounded') ? 'rounded' : ''
+			} p-3 ${className}`}
+		>
 			{children}
 		</div>
 	);

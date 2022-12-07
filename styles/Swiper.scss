@@ -1,0 +1,14 @@
+.swiper-horizontal {
+	> .swiper-pagination-basic.swiper-pagination-bullets {
+		bottom: 0;
+
+		.swiper-pagination-bullet {
+			height: 12px;
+			width: 12px;
+
+			&-active {
+				@apply bg-red-600;
+			}
+		}
+	}
+}
