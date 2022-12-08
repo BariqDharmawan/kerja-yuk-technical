@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import {
-	BiBell,
 	BiCalendarAlt,
 	BiCog,
 	BiHomeAlt,
@@ -19,6 +18,7 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/bundle';
 import 'swiper/css/navigation';
+import BelNotif from '../components/BelNotif';
 
 export default function Home() {
 	const menuBar = [
@@ -74,11 +74,8 @@ export default function Home() {
 
 	return (
 		<>
-			<TopBar label='Kerja Yuk'>
-				<div className='relative'>
-					<BiBell size={20} />
-					<span className='w-1 h-1 rounded-full bg-red-500 inline-flex absolute top-0 right-0'></span>
-				</div>
+			<TopBar label='Kerja Yuk' className='justify-between'>
+				<BelNotif isHaveNotif={true} />
 			</TopBar>
 
 			<main className='pb-32 z-10'>
