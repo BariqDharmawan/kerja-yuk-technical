@@ -27,6 +27,7 @@ const Notification = () => {
 			desc: 'Lorem ipsum dolor sit "amet consectetur adipisicing elit". Omnis illum <b>sapiente</b> dolore non mollitia nam quibusdam odio corrupti tempora distinctio?',
 		},
 	];
+
 	return (
 		<>
 			<TopBar
@@ -50,12 +51,14 @@ const Notification = () => {
 							key={index}
 						>
 							<div className='relative bg-red-600 rounded-md'>
-								<Image
-									src={'/img/dummy/drugs.png'}
-									height={150}
-									width={150}
-									alt={notif.label}
-								/>
+								<div className='w-16 h-16'>
+									<Image
+										src={'/img/dummy/drugs.png'}
+										fill
+										quality={100}
+										alt={notif.label}
+									/>
+								</div>
 								<span
 									className={`absolute text-white right-0 bottom-0 rounded-full 
 									translate-x-1/4 translate-y-1/4 p-1
@@ -72,9 +75,20 @@ const Notification = () => {
 								</span>
 							</div>
 							<div>
-								<p className='text-lg font-bold'>
-									{notif.label}
-								</p>
+								<div className='flex justify-between'>
+									<p className='text-lg font-bold'>
+										{notif.label}
+									</p>
+									<time className='text-gray-500'>
+										{new Intl.DateTimeFormat('id-ID', {
+											year: 'numeric',
+											month: '2-digit',
+											day: '2-digit',
+										})
+											.format(new Date())
+											.replaceAll('/', '-')}
+									</time>
+								</div>
 								<p
 									dangerouslySetInnerHTML={{
 										__html: notif.desc,

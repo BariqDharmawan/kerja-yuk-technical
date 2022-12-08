@@ -19,6 +19,8 @@ import 'swiper/css';
 import 'swiper/css/bundle';
 import 'swiper/css/navigation';
 import BelNotif from '../components/BelNotif';
+import NewsItem from '../components/NewsItem';
+import PeopleInfo from '../components/PeopleInfo';
 
 export default function Home() {
 	const menuBar = [
@@ -78,7 +80,7 @@ export default function Home() {
 				<BelNotif isHaveNotif={true} />
 			</TopBar>
 
-			<main className='pb-32 z-10'>
+			<main className='pb-28'>
 				<div className='container mx-auto px-4 lg:px-0'>
 					<section className='mb-5'>
 						<h1 className='mb-3 text-lg'>Hi, Good Morning!</h1>
@@ -169,72 +171,27 @@ export default function Home() {
 						>
 							{[...Array(6)].map((_, index) => (
 								<SwiperSlide key={index} className='py-6 mb-3'>
-									<Card className='shadow-gray-300 border border-gray-200 rounded-xl'>
-										<div className='flex justify-between items-center'>
-											<figure>
-												<Image
-													src='/img/dummy/profile.png'
-													height={30}
-													width={30}
-													className='rounded-full'
-													alt='Slider'
-												/>
-												<figcaption className='text-orange-600 font-bold'>
-													Ana Rismawati
-												</figcaption>
-											</figure>
-											<div>
-												<span className='block'>
-													Senin
-												</span>
-												<time dateTime='30-05-2022'>
-													30 Mei 2022
-												</time>
-											</div>
-										</div>
-										<p>
-											Lorem ipsum dolor sit amet
-											consectetur adipisicing elit.
-										</p>
-									</Card>
+									<NewsItem />
 								</SwiperSlide>
 							))}
 						</Swiper>
 					</section>
 
-					<section className='mb-5'>
+					<section>
 						<h2 className='font-bold text-lg'>Online</h2>
 						<Card className='rounded-2xl'>
 							<div className='flex justify-start pl-3'>
 								{[...Array(8)].map((_, index) => (
-									<figure
-										key={index}
-										className={`flex flex-col items-center`}
-										style={{
-											zIndex: index * 10,
-											marginLeft: `-10px`,
-										}}
-									>
-										<Image
-											src='/img/dummy/profile.png'
-											height={48}
-											width={48}
-											className={`border-2 border-white rounded-full z-${
-												index * 10
-											}`}
-											alt='Online People'
-										/>
-										<figcaption>
-											<span className='block text-black'>
-												Jefri
-											</span>
-											<small className='text-gray-800'>
-												WFH
-											</small>
-										</figcaption>
-									</figure>
+									<PeopleInfo
+										className={index === 7 ? 'z-10' : ''}
+										peopleName='Jef'
+										status='WFH'
+									/>
 								))}
-								<div className='text-white font-bold bg-red-600 flex justify-center items-center text-center text-xs rounded-full w-12 h-12'>
+								<div
+									className='text-white font-bold bg-red-600 flex justify-center items-center 
+									text-center text-xs rounded-full w-12 h-12 -ml-2'
+								>
 									10 <br /> more
 								</div>
 							</div>
@@ -252,12 +209,12 @@ export default function Home() {
 						label={menu.label}
 						classIcon={
 							menu.isCenter
-								? 'bg-red-500 rounded-full w-16 h-16'
+								? 'bg-red-500 rounded-full w-16 h-16 shadow-circle shadow-gray-400'
 								: ''
 						}
-						className={` text-sm ${
+						className={`text-sm z-20 ${
 							menu.isCenter
-								? ' text-red-600 inline-flex -mt-10'
+								? 'text-red-600 inline-flex -mt-10'
 								: 'flex-grow'
 						}`}
 					/>
